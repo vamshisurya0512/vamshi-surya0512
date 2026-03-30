@@ -1,0 +1,130 @@
+html { scroll-behavior: smooth; }
+
+/* FADE-IN NAME */
+.fade-in-name {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 0.8s;
+}
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(-20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+/* FADE-IN ANIMATION FOR PROFILE IMAGE */
+.fade-in-photo {
+  opacity: 0;                  /* start invisible */
+  animation: fadeInPhoto 2s ease forwards;  /* animation duration & easing */
+  animation-delay: 0.5s;       /* optional delay to start after page loads */
+}
+
+@keyframes fadeInPhoto {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* BODY */
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  align-items: center;
+  color:white;
+  overflow:hidden;
+}
+.hero-video {
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.hero-overlay {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.6);
+  z-index:1;
+}
+.hero .left, .hero .right { position: relative; z-index:2; }
+.profile-img { width:300px; border-radius:10px; }
+
+/* CONTACT & RESUME */
+.contact-link { color:#00c6ff; text-decoration:none; font-weight:bold; }
+.contact-link:hover { color:#0072ff; }
+.resume-btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  background:#00c6ff;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  transition: all 0.3s ease;
+}
+.resume-btn:hover { background:#0072ff; }
+
+/* TABS */
+.tabs {
+  display:flex;
+  justify-content:center;
+  background:black;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.tabs button {
+  color:white;
+  padding:15px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  position:relative;
+}
+.tabs button:hover::after, .tabs button.active::after {
+  content:'';
+  position:absolute;
+  left:0; bottom:0;
+  width:100%; height:3px;
+  background:#00c6ff;
+}
+
+/* TAB CONTENT */
+.tab-wrapper { padding:30px; }
+.tab { display:none; animation:slide 0.4s ease; }
+.tab.active { display:block; }
+@keyframes slide { from { transform:translateX(40px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+
+/* CARDS */
+.card { background:white; padding:20px; margin:15px 0; border-radius:8px; cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+.details { display:none; }
+.card.open .details { display:block; }
+
+/* ABOUT VIDEO */
+.about-section { position:relative; overflow:hidden; border-radius:12px; min-height:400px; margin-top:20px; }
+.about-video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.about-overlay { position:absolute; inset:0; background: rgba(0,0,0,0.5); z-index:1; }
+.about-content { position:relative; z-index:2; padding:30px; color:white; }
+
+.linkedin-btn {
+  background-color: #0077b5;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.linkedin-btn:hover {
+  background-color: #005582;
+}
